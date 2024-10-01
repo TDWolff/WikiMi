@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    image: wikimi
+    build: .
+    ports:
+      - "8877:8877"
+    command: gunicorn -w 1 -k gevent --timeout 3600 -b :8089 main:app
